@@ -1,7 +1,7 @@
 ﻿namespace NASR_Parser
 {
-	public class Aff2Record
-	{
+    public class Aff2Record
+    {
         [Field(04)]
         public string ArtccIdent;
 
