@@ -32,13 +32,13 @@ namespace NASR_Parser
                             aff.Aff1Records.Add(aff1);
                             break;
                         case "AFF2":
-							var aff2 = RecordParser.Parse<Aff2Record>(reader);
-							aff.Aff2Records.Add(aff2);
-							break;
+                            var aff2 = RecordParser.Parse<Aff2Record>(reader);
+                            aff.Aff2Records.Add(aff2);
+                            break;
                         case "AFF3":
-							var aff3 = RecordParser.Parse<Aff3Record>(reader);
-							aff.Aff3Records.Add(aff3);
-							break;
+                            var aff3 = RecordParser.Parse<Aff3Record>(reader);
+                            aff.Aff3Records.Add(aff3);
+                            break;
                         case "AFF4":
                             var aff4 = RecordParser.Parse<Aff4Record>(reader);
                             aff.Aff4Records.Add(aff4);
@@ -46,7 +46,7 @@ namespace NASR_Parser
                     }
                 }
             }
-            
+
             return aff;
         }
     }

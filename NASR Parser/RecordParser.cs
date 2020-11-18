@@ -8,7 +8,7 @@ namespace NASR_Parser
         public static TRecord Parse<TRecord>(StringReader reader) where TRecord : new()
         {
             var record = new TRecord();
-            
+
             var recordType = typeof(TRecord);
             var recordFields = recordType.GetFields(BindingFlags.Public | BindingFlags.Instance);
             foreach (var field in recordFields)
@@ -16,7 +16,7 @@ namespace NASR_Parser
                 var fieldAttribute = field.GetCustomAttribute<FieldAttribute>();
                 if (fieldAttribute == null)
                     continue;
-                
+
                 var fieldLength = fieldAttribute.Length;
                 var valueBuffer = new char[fieldLength];
                 reader.Read(valueBuffer);

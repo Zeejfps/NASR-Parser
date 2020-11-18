@@ -30,7 +30,7 @@ namespace NASR_Parser
             }
             sb.Append(fields[fields.Length - 1].Name);
             sb.AppendLine();
-            
+
             foreach (var record in records)
             {
                 for (var i = 0; i < fields.Length - 1; i++)
