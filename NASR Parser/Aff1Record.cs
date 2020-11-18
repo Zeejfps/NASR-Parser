@@ -38,24 +38,15 @@
         [Field(11)]
         public string SiteLongitudeSeconds;
 
-        [Field(04)]
-        public string ArtccIcao;
+		[Field(04)]
+		public string ArtccIcao;
 
-        public Aff1Record(string artccIdent, string artccName, string siteLocation, string altName, string facilityType, string effectiveDate, string siteStateName, string siteStateCode, string siteLatitude, string siteLatitudeSeconds, string siteLongitude, string siteLongitudeSeconds, string artccIcao)
-        {
-            ArtccIdent = artccIdent;
-            ArtccName = artccName;
-            SiteLocation = siteLocation;
-            AltName = altName;
-            FacilityType = facilityType;
-            EffectiveDate = effectiveDate;
-            SiteStateName = siteStateName;
-            SiteStateCode = siteStateCode;
-            SiteLatitude = siteLatitude;
-            SiteLatitudeSeconds = siteLatitudeSeconds;
-            SiteLongitude = siteLongitude;
-            SiteLongitudeSeconds = siteLongitudeSeconds;
-            ArtccIcao = artccIcao;
-        }
-    }
+		public override string ToString()
+		{
+			return nameof(ArtccIdent) + ArtccIdent + ", " + nameof(ArtccName) + ArtccName + ", " + nameof(SiteLocation) + SiteLocation + ", " + nameof(AltName) + AltName + ", " + 
+                nameof(FacilityType) + FacilityType + ", " + nameof(EffectiveDate) + EffectiveDate + ", " + nameof(SiteStateName) + SiteStateName + ", " +
+                nameof(SiteStateCode) + SiteStateCode + ", " + nameof(SiteLatitude) + SiteLatitude + ", " + nameof(SiteLatitudeSeconds) + SiteLatitudeSeconds + ", " +
+                nameof(SiteLongitude) + SiteLongitude + ", " + nameof(SiteLongitudeSeconds) + SiteLongitudeSeconds + ", " + nameof(ArtccIcao) + ArtccIcao;
+		}
+	}
 }
