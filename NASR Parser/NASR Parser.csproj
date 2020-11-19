@@ -38,11 +38,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aff.cs" />
-    <Compile Include="Aff1Record.cs" />
-    <Compile Include="Aff2Record.cs" />
-    <Compile Include="Aff3Record.cs" />
-    <Compile Include="Aff4Record.cs" />
+    <Compile Include="Aff\Aff.cs" />
+    <Compile Include="Aff\Aff1Record.cs" />
+    <Compile Include="Aff\Aff2Record.cs" />
+    <Compile Include="Aff\Aff3Record.cs" />
+    <Compile Include="Aff\Aff4Record.cs" />
+    <Compile Include="Arb\Arb.cs" />
+    <Compile Include="Arb\Arb1Record.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FieldAttribute.cs" />
     <Compile Include="NasrParser.cs" />
