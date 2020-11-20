@@ -14,8 +14,22 @@ namespace NASR_Parser
             Console.WriteLine($"Path to DB: {pathToDb}");
 
             var aff = Aff.Parse(pathToDb);
-            var savePath = Path.Combine(pathToDb, "AFF.csv");
+            var savePath = Path.Combine(pathToDb, "ArtccFacility.csv");
             SaveToCSV(aff.Aff1Records, savePath);
+
+            savePath = Path.Combine(pathToDb, "ArtccRemarks.csv");
+            SaveToCSV(aff.Aff2Records, savePath);
+
+            savePath = Path.Combine(pathToDb, "ArtccFreq.csv");
+            SaveToCSV(aff.Aff3Records, savePath);
+
+            savePath = Path.Combine(pathToDb, "ArtccFreqRemarks.csv");
+            SaveToCSV(aff.Aff4Records, savePath);
+
+            var arb = Arb.Parse(pathToDb);
+            savePath = Path.Combine(pathToDb, "ArtccBoundarySegment.csv");
+            SaveToCSV(arb.Arb1Record, savePath);
+
         }
 
         public static void SaveToCSV<TRecord>(List<TRecord> records, string savePath)
