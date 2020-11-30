@@ -26,9 +26,9 @@ namespace NASR_Parser
             savePath = Path.Combine(pathToDb, "ArtccFreqRemarks.csv");
             SaveToCSV(aff.Aff4Records, savePath);
 
-            var arb = Arb.Parse(pathToDb);
-            savePath = Path.Combine(pathToDb, "ArtccBoundarySegment.csv");
-            SaveToCSV(arb.Arb1Record, savePath);
+            //var arb = Arb.Parse(pathToDb);
+            //savePath = Path.Combine(pathToDb, "ArtccBoundarySegment.csv");
+            //SaveToCSV(arb.Arb1Record, savePath);
 
         }
 
