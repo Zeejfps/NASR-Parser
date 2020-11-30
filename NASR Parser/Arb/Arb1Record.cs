@@ -3,33 +3,33 @@
     public class Arb1Record
     {
         [Field(04)]
-        public string ArtccIdent;
+        public string ARTCC_IDENT;
         
         [Field(03)]
-        public string AltStructCode;
+        public string ALT_STRUCT_CODE;
 
         [Field(05)]
-        public string PointDesignator;
+        public string POINT_DESIGNATOR;
 
         [Field(40)]
-        public string ArtccName;
+        public string ARTCC_NAME;
         
         [Field(10)]
-        public string AltStructName;
+        public string ALT_STRUCT_NAME;
 
         [Field(14)]
-        public string Latitude;
+        public string LATITUDE;
         
         [Field(14)]
-        public string Longitude;
+        public string LONGITUDE;
 
         [Field(300)]
-        public string Description;
+        public string DESCRIPTION;
         
         [Field(06)]
-        public string SequenceNumber;
+        public string SEQUENCE_NUMBER;
         
         [Field(01)]
-        public string NasDescriptionFlag;
+        public string NAS_DESCRIPTION_FLAG;
     }
 }

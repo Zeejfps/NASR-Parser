@@ -3,27 +3,27 @@
     public class Aff4Record
     {
         [Field(04)]
-        public string ArtccIdent;
+        public string ARTCC_IDENT;
 
         [Field(30)]
-        public string SiteLocation;
+        public string LOCATION;
 
         [Field(05)]
-        public string FacilityType;
+        public string FACILITY_TYPE;
 
         [Field(08)]
-        public string Frequency;
+        public string FREQUENCY;
 
         [Field(02)]
-        public string FrequencySequenceNumber;
+        public string FREQUENCY_SEQUENCE_NUM;
 
         [Field(200)]
-        public string FrequencyRemarks;
+        public string FREQUENCY_REMARKS;
 
         public override string ToString()
         {
-            return nameof(ArtccIdent) + ArtccIdent + ", " + nameof(SiteLocation) + SiteLocation + ", " + nameof(FacilityType) + FacilityType + ", " + nameof(Frequency) + Frequency + ", "
-                + nameof(FrequencySequenceNumber) + FrequencySequenceNumber + ", " + nameof(FrequencyRemarks) + FrequencyRemarks;
+            return nameof(ARTCC_IDENT) + ARTCC_IDENT + ", " + nameof(LOCATION) + LOCATION + ", " + nameof(FACILITY_TYPE) + FACILITY_TYPE + ", " + nameof(FREQUENCY) + FREQUENCY + ", "
+                + nameof(FREQUENCY_SEQUENCE_NUM) + FREQUENCY_SEQUENCE_NUM + ", " + nameof(FREQUENCY_REMARKS) + FREQUENCY_REMARKS;
         }
     }
 }
