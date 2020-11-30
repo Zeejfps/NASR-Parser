@@ -47,7 +47,11 @@
     <Compile Include="Arb\Arb1Record.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FieldAttribute.cs" />
+    <Compile Include="Fss\Fss.cs" />
+    <Compile Include="Fss\FssRecord.cs" />
     <Compile Include="NasrParser.cs" />
+    <Compile Include="Nav\Nav.cs" />
+    <Compile Include="Nav\Nav1Record.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordParser.cs" />
   </ItemGroup>
