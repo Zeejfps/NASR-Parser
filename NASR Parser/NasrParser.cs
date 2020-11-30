@@ -20,6 +20,20 @@ namespace NASR_Parser
                                   $"LAT: {record.LATITUDE} LONG: {record.LONGITUDE}");
             }
 
+            var com = Com.Parse(pathToDb);
+            foreach (var record in com.ComRecords)
+            {
+                Console.WriteLine($"IDENT: {record.IDENT}, FREQ: LAT: {record.LATITUDE} LONG: {record.LONGITUDE}");
+                Console.Write("FREQ: ");
+                foreach (var freq in record.FREQUENCIES)
+                {
+                    if (string.IsNullOrWhiteSpace(freq))
+                        continue;
+                    Console.Write($"{freq}, ");
+                }
+                Console.WriteLine();
+            }
+
             // var ffs = Fss.Parse(pathToDb);
             // foreach (var record in ffs.FssRecords)
             // {
