@@ -45,6 +45,9 @@
     <Compile Include="Aff\Aff4Record.cs" />
     <Compile Include="Arb\Arb.cs" />
     <Compile Include="Arb\Arb1Record.cs" />
+    <Compile Include="Com\Com.cs" />
+    <Compile Include="Com\ComRecord.cs" />
+    <Compile Include="ExportAttribute.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FieldAttribute.cs" />
     <Compile Include="Fss\Fss.cs" />

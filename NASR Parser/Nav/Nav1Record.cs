@@ -3,7 +3,7 @@
     public class Nav1Record
     {
         [Field(04)]
-        public string FACILITY_IDENT;
+        public string IDENT;
 
         [Field(20)]
         public string FACILITY_TYPE;
@@ -16,7 +16,7 @@
         public string DATE;
         
         [Field(30)]
-        public string NAVAID_NAME;
+        public string NAME;
 
         [Field(40)]
         public string NAVAID_CITY;

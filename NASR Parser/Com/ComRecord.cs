@@ -52,5 +52,14 @@
         
         [Field(9)] 
         public string[] FREQUENCIES = new string[16];
+        
+        [Field(04)] 
+        public string FSS_IDENT;
+        
+        [Field(04)] 
+        public string __IGNORE1__;
+        
+        [Field(26)] 
+        public string FSS_NAME;
     }
 }

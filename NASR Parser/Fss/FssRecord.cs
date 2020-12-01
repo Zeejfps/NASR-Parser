@@ -74,8 +74,11 @@
         [Field(10)]
         public string EFAS_AVAILABLE;
         
-        [Field(9800)]
+        [Field(9640)]
         public string __IGNORE__;
+        
+        [Field(4)]
+        public string[] FSS_COM_FACILITIES = new string[40];
         
         [Field(9)]
         public string[] COM_FREQUENCIES = new string[60];
