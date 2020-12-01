@@ -60,7 +60,7 @@
         public string CAPABILITIES;
         
         [Field(14)]
-        public string[] COM_OUTLETS_IDENT = new string[40];
+        public string[] COM_IDENT = new string[40];
 
         [Field(07)]
         public string[] NAVAIDS_IDENT = new string[75];
@@ -74,11 +74,38 @@
         [Field(10)]
         public string EFAS_AVAILABLE;
         
-        [Field(9640)]
+        [Field(50)]
+        public string FLIGHT_WATCH_HOURS_OF_OPERATION;
+        
+        [Field(26)]
+        public string CITY;
+        
+        [Field(20)]
+        public string STATE;
+        
+        [Field(14)]
+        public string LATITUDE;
+        
+        [Field(14)]
+        public string LONGITUDE;
+        
+        [Field(3916)]
         public string __IGNORE__;
         
+        [Field(1)]
+        public string[] OWNER_CODE = new string[40];
+        
+        [Field(69)]
+        public string[] OWNER_NAME = new string[40];
+        
+        [Field(1)]
+        public string[] OPERATOR_CODE = new string[40];
+        
+        [Field(69)]
+        public string[] OPERATOR_NAME = new string[40];
+        
         [Field(4)]
-        public string[] FSS_COM_FACILITIES = new string[40];
+        public string[] COM_FSS = new string[40];
         
         [Field(9)]
         public string[] COM_FREQUENCIES = new string[60];

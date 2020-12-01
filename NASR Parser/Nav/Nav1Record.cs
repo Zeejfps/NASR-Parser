@@ -6,7 +6,7 @@
         public string IDENT;
 
         [Field(20)]
-        public string FACILITY_TYPE;
+        public string TYPE;
         
 
         [Field(04)]

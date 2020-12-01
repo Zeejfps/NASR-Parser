@@ -13,116 +13,92 @@ namespace NASR_Parser
         {
             var pathToDb = args[0];
             Console.WriteLine($"Path to DB: {pathToDb}");
-
-            // var sb = new StringBuilder();
-            //
-            // var nav = Nav.Parse(pathToDb);
-            // sb.Append("IDENT").Append("\tNAME").Append("\tFREQ").Append("\tLATITUDE").Append("\tLONGITUDE").Append("\tFSS_IDENT").Append("\tFSS_NAME").AppendLine();
-            // foreach (var record in nav.Nav1Records)
-            // {
-            //     // Console.WriteLine($"IDENT: {record.IDENT}, NAME: {record.NAME}, FREQ: {record.FREQ}, FSS_IDENT: {record.FSS_IDENT}, FSS_NAME: {record.FSS_NAME}, " +
-            //     //                   $"LAT: {record.LATITUDE} LONG: {record.LONGITUDE}");
-            //     sb.Append(record.IDENT);
-            //     sb.Append('\t').Append(record.NAME);
-            //     sb.Append('\t').Append(record.FREQ);
-            //     sb.Append('\t').Append(ConvertDmsToDecimal(record.LATITUDE));
-            //     sb.Append('\t').Append(ConvertDmsToDecimal(record.LONGITUDE));
-            //     sb.Append('\t').Append(record.FSS_IDENT);
-            //     sb.Append('\t').Append(record.FSS_NAME);
-            //     sb.AppendLine();
-            // }
-            //
-            // File.WriteAllText("NAVAIDS.csv", sb.ToString());
-            //
-            // sb.Clear();
-            // sb.Append("IDENT").Append("\tFSS_IDENT").Append("\tFSS_NAME").Append("\tLATITUDE").Append("\tLONGITUDE")
-            //     .Append("\tFREQ1").Append("\tFREQ2").Append("\tFREQ3").Append("\tFREQ4");
-            // sb.AppendLine();
-            //
-            // var com = Com.Parse(pathToDb);
-            // foreach (var record in com.ComRecords)
-            // {
-            //     if (string.IsNullOrEmpty(record.LATITUDE) || string.IsNullOrEmpty(record.LONGITUDE))
-            //         continue;
-            //     
-            //     Console.WriteLine($"IDENT: {record.IDENT}, LAT: {record.LATITUDE}, LONG: {record.LONGITUDE}");
-            //
-            //     sb.Append(record.IDENT);
-            //     sb.Append('\t').Append(record.FSS_IDENT);
-            //     sb.Append('\t').Append(record.FSS_NAME);
-            //     sb.Append('\t').Append(ConvertDmsToDecimal(record.LATITUDE));
-            //     sb.Append('\t').Append(ConvertDmsToDecimal(record.LONGITUDE));
-            //     sb.Append('\t').Append(record.FREQUENCIES[0]);
-            //     sb.Append('\t').Append(record.FREQUENCIES[1]);
-            //     sb.Append('\t').Append(record.FREQUENCIES[2]);
-            //     sb.Append('\t').Append(record.FREQUENCIES[3]);
-            //     sb.AppendLine();
-            //
-            //     Console.Write("FREQ: ");
-            //     foreach (var freq in record.FREQUENCIES)
-            //     {
-            //         if (string.IsNullOrWhiteSpace(freq))
-            //             continue;
-            //         Console.Write($"{freq}, ");
-            //     }
-            //     Console.WriteLine();
-            // }
-            //
-            // File.WriteAllText("FSS_COMS.csv", sb.ToString());
-
-
-            var ffs = Fss.Parse(pathToDb);
-            foreach (var record in ffs.FssRecords)
-            {
-                Console.WriteLine(record);
-                
-                // Console.Write("FSS_COM_FACILITIES: ");
-                // foreach (var comFacilities in record.FSS_COM_FACILITIES)
-                // {
-                //     if (string.IsNullOrWhiteSpace(comFacilities))
-                //         continue;
-                //     Console.Write($"{comFacilities}, ");
-                // }
-                // Console.WriteLine();
-                
-                Console.Write("PRIMARY_FREQUENCIES: ");
-                foreach (var freq in record.PRIMARY_FREQUENCIES)
-                {
-                    if (string.IsNullOrWhiteSpace(freq))
-                        continue;
-                    Console.Write($"{freq}, ");
-                }
-                Console.WriteLine();
-                
-                Console.Write($"COM_FREQUENCIES({record.COM_FREQUENCIES.Count(s => !string.IsNullOrWhiteSpace(s))}): ");
-                foreach (var freq in record.COM_FREQUENCIES)
-                {
-                    if (string.IsNullOrWhiteSpace(freq))
-                        continue;
-                    Console.Write($"{freq}, ");
-                }
-                Console.WriteLine();
-                
-                Console.Write($"COM_OUTLETS_IDENT({record.COM_OUTLETS_IDENT.Count(s => !string.IsNullOrWhiteSpace(s))}): ");
-                foreach (var outlet in record.COM_OUTLETS_IDENT)
-                {
-                    if (string.IsNullOrWhiteSpace(outlet))
-                        continue;
-                    Console.Write($"{outlet}, ");
-                }
-                Console.WriteLine();
-                
-                Console.Write($"NAVAIDS_IDENT({record.NAVAIDS_IDENT.Count(s => !string.IsNullOrWhiteSpace(s))}): ");
-                foreach (var navaid in record.NAVAIDS_IDENT)
-                {
-                    if (string.IsNullOrWhiteSpace(navaid))
-                        continue;
-                    Console.Write($"{navaid}, ");
-                }
-                Console.WriteLine();
             
-                Console.WriteLine("-------------------------------------------------");
+            var sb = new StringBuilder();
+            
+            var nav = Nav.Parse(pathToDb);
+            sb.Append("IDENT").Append("\tNAME").Append("\tTYPE").Append("\tCLASS").Append("\tFREQ")
+                .Append("\tFSS_IDENT").Append("\tFSS_NAME").Append("\tLATITUDE").Append("\tLONGITUDE").AppendLine();
+            foreach (var record in nav.Nav1Records)
+            {
+                // Console.WriteLine($"IDENT: {record.IDENT}, NAME: {record.NAME}, FREQ: {record.FREQ}, FSS_IDENT: {record.FSS_IDENT}, FSS_NAME: {record.FSS_NAME}, " +
+                //                   $"LAT: {record.LATITUDE} LONG: {record.LONGITUDE}");
+                sb.Append(record.IDENT);
+                sb.Append('\t').Append(record.NAME);
+                sb.Append('\t').Append(record.TYPE);
+                sb.Append('\t').Append(record.CLASS);
+                sb.Append('\t').Append(record.FREQ);
+                sb.Append('\t').Append(record.FSS_IDENT);
+                sb.Append('\t').Append(record.FSS_NAME);
+                sb.Append('\t').Append(ConvertDmsToDecimal(record.LATITUDE));
+                sb.Append('\t').Append(ConvertDmsToDecimal(record.LONGITUDE));
+                sb.AppendLine();
             }
+            
+            File.WriteAllText("FSS_NAVAIDS.csv", sb.ToString());
+            
+            sb.Clear();
+            sb.Append("IDENT").Append("\tFSS_IDENT").Append("\tFSS_NAME").Append("\tLATITUDE").Append("\tLONGITUDE")
+                .Append("\tFREQ1").Append("\tFREQ2").Append("\tFREQ3").Append("\tFREQ4");
+            sb.AppendLine();
+            
+            var com = Com.Parse(pathToDb);
+            foreach (var record in com.ComRecords)
+            {
+                if (string.IsNullOrEmpty(record.LATITUDE) || string.IsNullOrEmpty(record.LONGITUDE))
+                    continue;
+                
+                Console.WriteLine($"IDENT: {record.IDENT}, LAT: {record.LATITUDE}, LONG: {record.LONGITUDE}");
+            
+                sb.Append(record.IDENT);
+                sb.Append('\t').Append(record.FSS_IDENT);
+                sb.Append('\t').Append(record.FSS_NAME);
+                sb.Append('\t').Append(ConvertDmsToDecimal(record.LATITUDE));
+                sb.Append('\t').Append(ConvertDmsToDecimal(record.LONGITUDE));
+                sb.Append('\t').Append(record.FREQUENCIES[0]);
+                sb.Append('\t').Append(record.FREQUENCIES[1]);
+                sb.Append('\t').Append(record.FREQUENCIES[2]);
+                sb.Append('\t').Append(record.FREQUENCIES[3]);
+                sb.AppendLine();
+            
+                Console.Write("FREQ: ");
+                foreach (var freq in record.FREQUENCIES)
+                {
+                    if (string.IsNullOrWhiteSpace(freq))
+                        continue;
+                    Console.Write($"{freq}, ");
+                }
+                Console.WriteLine();
+            }
+            
+            File.WriteAllText("FSS_COMS.csv", sb.ToString());
+
+
+            // var ffs = Fss.Parse(pathToDb);
+            // foreach (var record in ffs.FssRecords)
+            // {
+            //     Console.WriteLine($"IDENT: {record.FSS_IDENT}, NAME: {record.FSS_NAME}, TYPE: {record.FACILITY_TYPE}");
+            //     
+            //     // Console.Write("FSS_COM_FACILITIES: ");
+            //     // foreach (var comFacilities in record.FSS_COM_FACILITIES)
+            //     // {
+            //     //     if (string.IsNullOrWhiteSpace(comFacilities))
+            //     //         continue;
+            //     //     Console.Write($"{comFacilities}, ");
+            //     // }
+            //     // Console.WriteLine();
+            //
+            //     Write("COM_IDENT", record.COM_IDENT);
+            //
+            //     //Write("OWNER_NAME", record.OWNER_NAME);
+            //
+            //     Write("COM_FREQUENCIES", record.COM_FREQUENCIES);
+            //     
+            //
+            //     //Write("NAVAIDS_IDENT", record.NAVAIDS_IDENT);
+            //
+            //     Console.WriteLine("-------------------------------------------------");
+            // }
 
             // var aff = Aff.Parse(pathToDb);
             // var savePath = Path.Combine(pathToDb, "ArtccFacility.csv");
@@ -143,6 +119,19 @@ namespace NASR_Parser
 
         }
 
+        static void Write(string name, string[] array)
+        {
+            Console.Write($"{name}({array.Count(s => !string.IsNullOrWhiteSpace(s))}): ");
+            foreach (var item in array)
+            {
+                if (string.IsNullOrWhiteSpace(item))
+                    Console.Write($" * ,");
+                else
+                    Console.Write($"{item}, ");
+            }
+            Console.WriteLine();
+        }
+        
         public static double ConvertDmsToDecimal(string dmsString)
         {
             var cardinal = dmsString[dmsString.Length - 1];
